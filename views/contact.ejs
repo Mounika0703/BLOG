@@ -1,0 +1,71 @@
+<section class="contact-section section" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2 data-heading="contact">Get In Touch</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contact-item">
+                <div class="contact-item-inner">
+                    <a href="tel:8309840735"><i class="fa fa-phone"></i></a>
+                    <span>Phone</span>
+                    <p>9398638939</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-inner">
+                    <a href="mailto:mounikakillana0703@gmail.com"><i class="fa fa-envelope"></i></a>
+                    <span>Email</span>
+                    <p>mounikakillana0703@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-inner">
+                    <a href="https://www.google.co.in/maps/place/Dallavalasa,+Andhra+Pradesh+532402/@18.3354142,83.8068903,14z/data=!3m1!4b1!4m5!3m4!1s0x3a3c6cc9bc2c52bf:0xef4e6b379ee56409!8m2!3d18.3368333!4d83.8287404"><i class="fa fa-map-marker"></i></a>
+                    <span>Address</span>
+                    <p>Srikakulam, Andhra Pradesh - 532402</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contact-form">
+                <form action="/submit-form" method="POST" name="submit-to-google-sheet">
+                    <div class="row">
+                        <div class="w-50">
+                            <div class="input-group">
+                                <input type="text" name="Name" placeholder="Name" class="input-control" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" name="Email" placeholder="Email" class="input-control" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" name="Subject" placeholder="Subject" class="input-control" required>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            <div class="input-group">
+                                <textarea class="input-control" placeholder="Message" name="Message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="submit-btn">
+                            <button type="submit" class="btn1">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                <input type="hidden" id="submissionStatus" value="<%= submissionStatus %>">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    window.onload = function() {
+        var submissionStatus = document.getElementById('submissionStatus').value;
+        if (submissionStatus === 'success') {
+            alert('Your message has been sent!');
+            window.location.href = '/contact';
+        }
+    };
+</script>

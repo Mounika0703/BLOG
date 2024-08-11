@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View / Edit Post</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Back Link */
+.back-link {
+  display: block;
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Admin Container */
+.admin-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--gray--light);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Admin Title */
+.admin-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Delete Form */
+.delete-form {
+  margin: 0;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* Edit Form */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 5px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.btn-update {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.btn-update:hover {
+  background-color: gray;
+}
+ h3{
+  font-weight: bold;
+ }
+</style>
+</head>
+<body>
+  <a href="/dashboard" class="back-link">&larr; Back</a>
+  <div class="admin-container">
+    <div class="admin-title">
+      <h3>VIEW / EDIT POST</h3>
+      <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST" class="delete-form">
+        <input type="submit" value="Delete" class="btn-delete">
+      </form>
+    </div>
+
+    <form action="/edit-post/<%= data._id %>?_method=PUT" method="POST" class="edit-form">
+      <label for="title" class="form-label"><b>Title</b></label>
+      <input type="text" id="title" placeholder="Post Title" name="title" value="<%= data.title %>" class="form-input">
+
+      <label for="body" class="form-label"><b>Content</b></label>
+      <textarea id="body" name="body" cols="50" rows="10" class="form-textarea"><%= data.body %></textarea>
+
+      <input type="submit" value="Update" class="btn-update">
+    </form>
+  </div>
+</body>
+</html>

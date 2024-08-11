@@ -1,0 +1,41 @@
+<style>
+  .articles {
+    text-align: center; /* Center child elements horizontally */
+  }
+  h2{
+    font-weight: bold;
+  }
+  .no-results {
+    background-color:--gray-light; 
+    max-width: 600px;
+    background: --gray-light;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+  }
+</style>
+<div class="author">
+  <h2 class="author__heading">SEARCH RESULTS</h2>
+</div>
+
+<section class="articles">
+
+  <% if (data.length === 0) { %>
+    <p class="no-results">No results found for "<%= searchTerm %>"</p>
+  <% } else { %>
+    <ul class="article-ul">
+      <% data.forEach(post => { %>
+        <li>
+          <a href="/post/<%= post._id %>">
+            <span><%= post.title %></span>
+            <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+
+</section>

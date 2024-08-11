@@ -1,0 +1,241 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 350px); /* Adjust based on header height */
+            padding: 10px;
+        }
+        .admin {
+            padding: 20px;
+            background: var(--skin-color); /* Background color for the form */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            max-width: 500px; /* Adjust max width as needed */
+            width: 100%;
+        }
+        .admin label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .admin input[type="text"],
+        .admin input[type="password"] {
+            width: calc(100% - 22px); /* Adjust to fit padding */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd; /* Border color */
+            border-radius: 4px;
+        }
+        .admin input[type="submit"] {
+            width: 30%;
+            margin-left: 35%;
+            padding: 10px;
+            background-color: black; /* Button background color */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .admin input[type="submit"]:hover {
+            background-color: whitesmoke; /* Button hover color */
+            color: black;
+        }
+        h3 {
+            color: #333;
+            text-align: center;
+            padding-top: 20px; /* Adjust as needed */
+            font-weight: bolder;
+            margin-bottom: 20px;
+        }
+        b {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <form class="admin" action="/admin" method="POST">
+            <h3><b>Sign In</b></h3>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username">
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password">
+
+            <input type="submit" value="Login">
+        </form>
+    </div class="content-wrapper">
+    <div>
+      <form class ="admin" action="/register" method="POST">
+        <h3>Register</h3>
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username">
+      
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password">
+      
+        <input type="submit" value="Register" class="btn">
+      
+      </form>
+    </div>
+</body>
+</html>
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sign In / Register</title>
+     <style>
+         body {
+             margin: 0;
+             padding: 0;
+             font-family: Arial, sans-serif;
+             background-color: #f4f4f4;
+         }
+         .content-wrapper {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             margin-top:-100px;
+             margin-bottom: -100px;
+             padding: 10px;
+         }
+         .form-container {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             background: var(--gray--light);
+             border-radius: 8px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+             max-width: 500px; /* Adjust as needed */
+             width: 100%;
+             padding: 20px;
+         }
+         .admin {
+             padding: 20px;
+             border-radius: 8px;
+             width: 100%;
+             display: none; /* Hide forms initially */
+         }
+         .admin.active {
+             display: block; /* Show active form */
+         }
+         .admin label {
+             display: block;
+             margin-bottom: 10px;
+             font-weight: bold;
+         }
+         .admin input[type="text"],
+         .admin input[type="password"] {
+             width: calc(100% - 22px); /* Adjust to fit padding */
+             padding: 10px;
+             margin-bottom: 15px;
+             border: 2px solid #ddd; /* Border color */
+             border-radius: 4px;
+         }
+         .admin input[type="submit"] {
+            width: 40%;
+             margin-left: 125px;
+             padding: 10px;
+             background-color: black; /* Button background color */
+             color: #fff;
+             border: none;
+             border-radius: 4px;
+             cursor: pointer;
+         }
+         .admin input[type="submit"]:hover {
+             background-color: gray; /* Button hover color */
+             color: black;
+         }
+         .toggle-btn {
+             margin-bottom: 20px;
+             padding: 10px;
+             background-color: black; /* Button background color */
+             color: #fff;
+             border: none;
+             border-radius: 4px;
+             cursor: pointer;
+             text-align: center;
+             width: 100%; /* Full width */
+             max-width: 200px; /* Adjust as needed */
+         }
+         .toggle-btn:hover {
+             background-color: gray; /* Button hover color */
+             color: black;
+         }
+         b{
+          font-weight: bold;
+         }
+         h3{
+          text-align: center;
+          padding: 0 0 15px 15px;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="content-wrapper">
+         <div class="form-container">
+             <!-- <button class="toggle-btn" onclick="toggleForm()">Create an Account</button> -->
+             <form class="admin sign-in active" action="/admin" method="POST">
+                 <h3><b>Sign In</b></h3>
+                 <label for="username"><b>Username</b></label>
+                 <input type="text" placeholder="Enter Username" name="username">
+ 
+                 <label for="password"><b>Password</b></label>
+                 <input type="password" placeholder="Enter Password" name="password">
+ 
+                 <input type="submit" value="Login">
+             </form>
+ 
+             <!-- <form class="admin register" action="/register" method="POST">
+                 <h3><b>Register</b></h3>
+                 <label for="username"><b>Username</b></label>
+                 <input type="text" placeholder="Enter Username" name="username">
+ 
+                 <label for="password"><b>Password</b></label>
+                 <input type="password" placeholder="Enter Password" name="password">
+ 
+                 <input type="submit" value="Register">
+             </form> -->
+         </div>
+     </div>
+ 
+     <script>
+         function toggleForm() {
+             const signInForm = document.querySelector('.sign-in');
+             const registerForm = document.querySelector('.register');
+             const isSignInVisible = signInForm.classList.contains('active');
+ 
+             if (isSignInVisible) {
+                 signInForm.classList.remove('active');
+                 registerForm.classList.add('active');
+                 document.querySelector('.toggle-btn').textContent = 'Already have an account?Sign In';
+             } else {
+                 signInForm.classList.add('active');
+                 registerForm.classList.remove('active');
+                 document.querySelector('.toggle-btn').textContent = 'Create an Account';
+             }
+         }
+     </script>
+ </body>
+ </html>
+ 
